@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://PancerniKal.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="PancerniKal" type="Node2D"]
+modulate = Color( 0.933333, 0.921569, 0.921569, 1 )
+script = ExtResource( 2 )
+
+[node name="WoodButton" type="Button" parent="."]
+margin_left = 183.921
+margin_top = 221.245
+margin_right = 291.921
+margin_bottom = 274.245
+custom_fonts/font = SubResource( 1 )
+text = "Dodaj"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodLineEdit" type="LineEdit" parent="."]
+margin_left = 24.2202
+margin_top = 220.0
+margin_right = 174.22
+margin_bottom = 274.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wood" type="TextureRect" parent="."]
+margin_left = 75.6818
+margin_top = 32.4997
+margin_right = 259.682
+margin_bottom = 156.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WoodScore" type="Label" parent="."]
+margin_left = 23.578
+margin_top = 148.48
+margin_right = 296.578
+margin_bottom = 215.48
+custom_fonts/font = SubResource( 3 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StoneScore" type="Label" parent="."]
+margin_left = 312.838
+margin_top = 155.0
+margin_right = 585.838
+margin_bottom = 222.0
+custom_fonts/font = SubResource( 3 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Stone" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StoneLineEdit" type="LineEdit" parent="."]
+margin_left = 311.482
+margin_top = 221.26
+margin_right = 461.482
+margin_bottom = 275.26
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="StoneButton" type="Button" parent="."]
+margin_left = 469.923
+margin_top = 221.245
+margin_right = 577.923
+margin_bottom = 274.245
+custom_fonts/font = SubResource( 1 )
+text = "Dodaj"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+[connection signal="pressed" from="WoodButton" to="." method="_on_WoodButton_pressed"]
+[connection signal="pressed" from="StoneButton" to="." method="_on_StoneButton_pressed"]
