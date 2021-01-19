@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Start.gd" type="Script" id=2]
-[ext_resource path="res://Wybierz.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -40,6 +39,4 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Wybierz" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

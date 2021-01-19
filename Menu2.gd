@@ -2,17 +2,11 @@ extends Node2D
 
 
 func _ready():
-	$PancerniKal2.hide() 
+	pass
 
 
 func _on_Pancerni2_pressed():
-	$PancerniKal2.show()
-	$Pancerni2.hide()
-	$Dragoni2.hide()
-	$Rajtarzy2.hide()
-	$Lisowczycy2.hide()
-	$Korsarze2.hide() 
-	$WybierzZastep2.hide()
+	get_tree().change_scene("res://PancerniKal2.tscn")
 
 
 func _on_Dragoni2_pressed():
@@ -29,3 +23,7 @@ func _on_Lisowczycy2_pressed():
 
 func _on_Korsarze2_pressed():
 	pass 
+
+
+func _on_Arrow2_pressed():
+	get_tree().change_scene("res://Wybierz.tscn")

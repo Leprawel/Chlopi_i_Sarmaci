@@ -4,22 +4,15 @@ extends Node2D
 
 
 func _ready():
-	$Menu.hide()
-	$Menu2.hide()
+	pass
 
 
 
 
-func _on_DodajSurowce_pressed():
-	$Menu.show()
-	$DodajSurowce.hide()
-	$ZrodloDochodu.hide()
-	$Label.hide()
+func _on_DodajSurowce_pressed(): 
+	get_tree().change_scene("res://Menu.tscn")
 
 
 
 func _on_ZrodloDochodu_pressed():
-	$Menu2.show()
-	$DodajSurowce.hide()
-	$ZrodloDochodu.hide()
-	$Label.hide()
+	get_tree().change_scene("res://Menu2.tscn")

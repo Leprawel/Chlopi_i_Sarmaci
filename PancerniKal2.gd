@@ -26,3 +26,7 @@ func _on_IronButton2_pressed():
 	var newScoreIron2 = str(int(amountOfIronAdded2) + int(theAmountOfIron2))
 	$IronScore2.text = newScoreIron2 + " / tyg"
 	$IronLineEdit2.clear()
+
+
+func _on_Arrow4_pressed():
+	get_tree().change_scene("res://Menu2.tscn")

@@ -28,3 +28,7 @@ func _on_IronButton_pressed():
 	var newScoreIron = str(int(amountOfIronAdded) + int(theAmountOfIron))
 	$IronScore.text = newScoreIron
 	$IronLineEdit.clear()
+
+
+func _on_Arrow3_pressed():
+	get_tree().change_scene("res://Menu.tscn")

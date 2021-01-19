@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://PancerniKal.gd" type="Script" id=2]
 [ext_resource path="res://art/Woodh3.png" type="Texture" id=3]
 [ext_resource path="res://art/Stoneh3.png" type="Texture" id=4]
 [ext_resource path="res://art/Iron.png" type="Texture" id=5]
+[ext_resource path="res://art/strzałka.jpg" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -171,6 +172,20 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Arrow3" type="Button" parent="."]
+margin_left = 50.7888
+margin_top = 875.304
+margin_right = 688.789
+margin_bottom = 1507.3
+rect_scale = Vector2( 0.1, 0.1 )
+icon = ExtResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 [connection signal="pressed" from="WoodButton" to="." method="_on_WoodButton_pressed"]
 [connection signal="pressed" from="StoneButton" to="." method="_on_StoneButton_pressed"]
 [connection signal="pressed" from="IronButton" to="." method="_on_IronButton_pressed"]
+[connection signal="pressed" from="Arrow3" to="." method="_on_Arrow3_pressed"]

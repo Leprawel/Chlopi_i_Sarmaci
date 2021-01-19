@@ -2,12 +2,10 @@ extends Node
 
 
 func _ready():
-	$Wybierz.hide()
+	pass
 
 
 func _on_StartButton_pressed():
-	$Wybierz.show()
-	$StartButton.hide()
-	$ChlopiISarmaci.hide()
+	get_tree().change_scene("res://Wybierz.tscn")
 
 

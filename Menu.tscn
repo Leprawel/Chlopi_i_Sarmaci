@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Menu.gd" type="Script" id=2]
-[ext_resource path="res://PancerniKal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/strzałka.jpg" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -91,9 +91,21 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="PancerniKal" parent="." instance=ExtResource( 3 )]
+[node name="Arrow" type="Button" parent="."]
+modulate = Color( 0.921569, 0.921569, 0.921569, 1 )
+margin_left = 50.7888
+margin_top = 875.304
+margin_right = 688.789
+margin_bottom = 1507.3
+rect_scale = Vector2( 0.1, 0.1 )
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Pancerni" to="." method="_on_Pancerni_pressed"]
 [connection signal="pressed" from="Dragoni" to="." method="_on_Dragoni_pressed"]
 [connection signal="pressed" from="Rajtarzy" to="." method="_on_Rajtarzy_pressed"]
 [connection signal="pressed" from="Lisowczycy" to="." method="_on_Lisowczycy_pressed"]
 [connection signal="pressed" from="Korsarze" to="." method="_on_Korsarze_pressed"]
+[connection signal="pressed" from="Arrow" to="." method="_on_Arrow_pressed"]
