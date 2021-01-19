@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Start.gd" type="Script" id=2]
-[ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Wybierz.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -31,6 +31,9 @@ margin_top = 40.4086
 margin_right = 602.0
 margin_bottom = 151.409
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Chłopi i Sarmaci"
 align = 1
 valign = 1
@@ -38,5 +41,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" parent="." instance=ExtResource( 3 )]
+[node name="Wybierz" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

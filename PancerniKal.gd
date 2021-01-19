@@ -20,3 +20,11 @@ func _on_StoneButton_pressed():
 	var newScoreStone = str(int(amountOfStoneAdded) + int(theAmountOfStone))
 	$StoneScore.text = newScoreStone
 	$StoneLineEdit.clear()
+
+
+func _on_IronButton_pressed():
+	var amountOfIronAdded = $IronLineEdit.text
+	var theAmountOfIron = $IronScore.text
+	var newScoreIron = str(int(amountOfIronAdded) + int(theAmountOfIron))
+	$IronScore.text = newScoreIron
+	$IronLineEdit.clear()

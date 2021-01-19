@@ -2,13 +2,12 @@ extends Node
 
 
 func _ready():
-	$Menu.hide()
+	$Wybierz.hide()
 
 
 func _on_StartButton_pressed():
-	$Menu.show()
+	$Wybierz.show()
 	$StartButton.hide()
 	$ChlopiISarmaci.hide()
-
 
 
