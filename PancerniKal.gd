@@ -1,12 +1,10 @@
 extends Node2D
 
+var tablica = {}
 
 func _ready():
 	pass
-
-
 func _on_Dodaj_pressed():
-	var tablica = {}
 	tablica["Drewno"] = 5
 	if tablica.has($Zasob_edit.text) :
 		tablica[$Zasob_edit.text] += int($Ilosc_edit.text)
