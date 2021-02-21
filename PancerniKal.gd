@@ -4,8 +4,10 @@ var tablica = {}
 
 func _ready():
 	pass
+
+
+
 func _on_Dodaj_pressed():
-	tablica["Drewno"] = 5
 	if tablica.has($Zasob_edit.text) :
 		tablica[$Zasob_edit.text] += int($Ilosc_edit.text)
 	else :
