@@ -1,32 +1,25 @@
 extends Node2D
 
-
+var zasoby = {} 
 
 func _ready():
-	pass 
+	get_node("Start")
+	$Start/ChlopiISarmaci.hide()
+	$Start/StartButton.hide()
+	print($Start.date)
 
-func _on_WoodButton2_pressed():
-	var amountOfWoodAdded2 = $WoodLineEdit2.text
-	var theAmountOfWood2 = $WoodScore2.text
-	var newScoreWood2 = str(int(amountOfWoodAdded2) + int(theAmountOfWood2))
-	$WoodScore2.text = newScoreWood2 + " / tyg"
-	$WoodLineEdit2.clear()
-
-
-func _on_StoneButton2_pressed():
-	var amountOfStoneAdded2 = $StoneLineEdit2.text
-	var theAmountOfStone2 = $StoneScore2.text
-	var newScoreStone2 = str(int(amountOfStoneAdded2) + int(theAmountOfStone2))
-	$StoneScore2.text = newScoreStone2 + " / tyg"
-	$StoneLineEdit2.clear()
-
-func _on_IronButton2_pressed():
-	var amountOfIronAdded2 = $IronLineEdit2.text
-	var theAmountOfIron2 = $IronScore2.text
-	var newScoreIron2 = str(int(amountOfIronAdded2) + int(theAmountOfIron2))
-	$IronScore2.text = newScoreIron2 + " / tyg"
-	$IronLineEdit2.clear()
+func _on_Dodaj2_pressed():
+	if zasoby.has($Zasob.text) :
+		zasoby[$Zasob.text] += int($Ilosc.text)
+	else :
+		zasoby[$Zasob.text] = int($Ilosc.text)
+	$Zasob.clear()
+	$Ilosc.clear()
+	print(zasoby)
+	$Label.text = str(zasoby)
 
 
-func _on_Arrow4_pressed():
-	get_tree().change_scene("res://Menu2.tscn")
+func _on_Refresh_pressed():
+	var new_date = OS.get_unix_time()
+	print($Start.date)
+	print(new_date)

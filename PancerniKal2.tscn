@@ -1,191 +1,80 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://PancerniKal2.gd" type="Script" id=2]
-[ext_resource path="res://art/Woodh3.png" type="Texture" id=3]
-[ext_resource path="res://art/Stoneh3.png" type="Texture" id=4]
-[ext_resource path="res://art/Iron.png" type="Texture" id=5]
-[ext_resource path="res://art/strzałka.jpg" type="Texture" id=6]
+[ext_resource path="res://Start.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 32
 font_data = ExtResource( 1 )
 
 [node name="PancerniKal2" type="Node2D"]
-modulate = Color( 0.933333, 0.921569, 0.921569, 1 )
 script = ExtResource( 2 )
 
-[node name="WoodButton2" type="Button" parent="."]
-margin_left = 183.921
-margin_top = 221.245
-margin_right = 291.921
-margin_bottom = 274.245
+[node name="Zasob" type="LineEdit" parent="."]
+margin_left = 40.0
+margin_top = 80.0
+margin_right = 208.0
+margin_bottom = 152.0
 custom_fonts/font = SubResource( 1 )
-text = "Dodaj"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="WoodLineEdit2" type="LineEdit" parent="."]
-margin_left = 24.2202
-margin_top = 220.0
-margin_right = 174.22
-margin_bottom = 274.0
-custom_fonts/font = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Wood2" type="TextureRect" parent="."]
-margin_left = 67.2729
-margin_top = 24.0907
-margin_right = 251.273
-margin_bottom = 148.091
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="WoodScore2" type="Label" parent="."]
-margin_left = 23.578
-margin_top = 148.48
-margin_right = 296.578
-margin_bottom = 215.48
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "5 / tyg"
 align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="StoneScore2" type="Label" parent="."]
-margin_left = 312.838
-margin_top = 155.0
-margin_right = 585.838
-margin_bottom = 222.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "5 / tyg"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": ""
-}
-
-[node name="Stone2" type="TextureRect" parent="."]
-margin_left = 348.0
-margin_top = 27.0
-margin_right = 528.0
-margin_bottom = 147.0
-texture = ExtResource( 4 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="StoneLineEdit2" type="LineEdit" parent="."]
-margin_left = 311.482
-margin_top = 221.26
-margin_right = 461.482
-margin_bottom = 275.26
-custom_fonts/font = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": ""
-}
-
-[node name="StoneButton2" type="Button" parent="."]
-margin_left = 469.923
-margin_top = 221.245
-margin_right = 577.923
-margin_bottom = 274.245
-custom_fonts/font = SubResource( 1 )
-text = "Dodaj"
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": ""
-}
-
-[node name="IronButton2" type="Button" parent="."]
-margin_left = 179.921
-margin_top = 497.245
-margin_right = 287.921
-margin_bottom = 550.245
-custom_fonts/font = SubResource( 1 )
-text = "Dodaj"
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": ""
-}
-
-[node name="IronLineEdit2" type="LineEdit" parent="."]
-margin_left = 19.482
-margin_top = 497.26
-margin_right = 169.482
-margin_bottom = 551.26
-custom_fonts/font = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="IronScore2" type="Label" parent="."]
-margin_left = 20.838
-margin_top = 421.0
-margin_right = 293.838
-margin_bottom = 488.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "5 / tyg"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="Iron2" type="TextureRect" parent="."]
-margin_left = 84.0
-margin_top = 302.0
-margin_right = 242.0
-margin_bottom = 424.0
-texture = ExtResource( 5 )
-expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Arrow4" type="Button" parent="."]
-margin_left = 50.7888
-margin_top = 875.304
-margin_right = 688.789
-margin_bottom = 1507.3
-rect_scale = Vector2( 0.1, 0.1 )
-icon = ExtResource( 6 )
-flat = true
+[node name="Ilosc" type="LineEdit" parent="."]
+margin_left = 232.0
+margin_top = 80.0
+margin_right = 368.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
-[connection signal="pressed" from="WoodButton2" to="." method="_on_WoodButton2_pressed"]
-[connection signal="pressed" from="StoneButton2" to="." method="_on_StoneButton2_pressed"]
-[connection signal="pressed" from="IronButton2" to="." method="_on_IronButton2_pressed"]
-[connection signal="pressed" from="Arrow4" to="." method="_on_Arrow4_pressed"]
+
+[node name="Refresh" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 208.0
+margin_right = 552.0
+margin_bottom = 280.0
+mouse_default_cursor_shape = 1
+custom_fonts/font = SubResource( 1 )
+text = "Refresh"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Dodaj2" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 80.0
+margin_right = 552.0
+margin_bottom = 152.0
+mouse_default_cursor_shape = 1
+custom_fonts/font = SubResource( 1 )
+text = "Dodaj"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 320.0
+margin_right = 528.0
+margin_bottom = 792.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" parent="." instance=ExtResource( 3 )]
+[connection signal="pressed" from="Refresh" to="." method="_on_Refresh_pressed"]
+[connection signal="pressed" from="Dodaj2" to="." method="_on_Dodaj2_pressed"]

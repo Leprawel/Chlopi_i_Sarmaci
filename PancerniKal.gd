@@ -1,10 +1,7 @@
 extends Node2D
 
+
 var tablica = {}
-
-func _ready():
-	pass
-
 
 
 func _on_Dodaj_pressed():
