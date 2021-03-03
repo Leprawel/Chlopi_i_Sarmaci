@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Chlopi_i_Sarmaci"
-run/main_scene="res://Start.tscn"
+run/main_scene="res://Interface.tscn"
 config/icon="res://icon.png"
 
 [display]
