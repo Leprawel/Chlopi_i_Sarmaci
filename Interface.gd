@@ -50,7 +50,6 @@ func Pancerni2_add():
 	$Pancerni2/Resource2.clear()
 	$Pancerni2/Value2.clear()
 	print(manufacturer)
-	print(resource)
 
 func Refresh_date():
 	new_date = OS.get_unix_time()
@@ -65,7 +64,4 @@ func Refresh_date():
 		new_score -= 20
 	print(resource)
 	print(new_score)
-
-
-
 
