@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Interface.gd" type="Script" id=2]
 [ext_resource path="res://art/strzałka.jpg" type="Texture" id=3]
 [ext_resource path="res://Pancerni.gd" type="Script" id=4]
 [ext_resource path="res://Pancerni2.gd" type="Script" id=5]
+[ext_resource path="res://Text.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 31
@@ -301,6 +302,8 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Text" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="Start/Start_button" to="." method="_on_Start_button_pressed"]
 [connection signal="pressed" from="Menu/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="Menu/Income" to="." method="_on_Income_pressed"]

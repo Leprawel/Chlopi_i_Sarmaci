@@ -4,6 +4,7 @@ func _ready():
 	$Menu.hide()
 	$Pancerni.hide()
 	$Pancerni2.hide()
+	$Text.hide()
 	date = OS.get_unix_time()
 
 func _on_Start_button_pressed():
@@ -32,8 +33,15 @@ var date
 var new_date
 var score = 0
 var new_score = 0
+var size = 0
 
+onready var elem = preload('res://Text.tscn')
+
+func setText(val1,val2):
+	$Text/TextEdit.text = val1 + ":" + val2
+	
 func Pancerni_add():   
+	size = resource.size()
 	if resource.has($Pancerni/Resource.text):
 		resource[$Pancerni/Resource.text] += int($Pancerni/Value.text)
 	else :
@@ -41,6 +49,13 @@ func Pancerni_add():
 	$Pancerni/Resource.clear()
 	$Pancerni/Value.clear()
 	print(resource)
+	for i in range (0,size + 1):
+		var newElement = elem.instance()
+		add_child(newElement)
+		newElement.setText($Pancerni/Resource.text,$Pancerni/Value.text)
+		newElement.position = Vector2(0,i*100)
+		$Text.show()
+	
 
 func Pancerni2_add():
 	if manufacturer.has($Pancerni2/Resource2.text):
@@ -56,12 +71,11 @@ func Refresh_date():
 	score = new_date - date
 	new_score += score
 	date = new_date
-	while new_score >= 20:
-		if manufacturer.has("Drewno") || resource.has("Drewno"):
-			resource["Drewno"] += manufacturer["Drewno"]
-		if manufacturer.has("Kamien") || resource.has("Kamien"):
-			resource["Kamien"] += manufacturer["Kamien"]
-		new_score -= 20
+	while new_score >= 40:
+		for item in resource:
+			if manufacturer.has(item):
+				resource[item] += manufacturer[item]
+		new_score -= 40
 	print(resource)
 	print(new_score)
 
