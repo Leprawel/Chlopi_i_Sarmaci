@@ -7,6 +7,7 @@ func _ready():
 	$Text.hide()
 	date = OS.get_unix_time()
 
+
 func _on_Start_button_pressed():
 	$Start.hide()
 	$Menu.show()
@@ -22,6 +23,7 @@ func _on_Income_pressed():
 func _on_Arrow_menu3_pressed():
 	$Menu.show()
 	$Pancerni.hide()
+	$Text.hide()
 
 func _on_Arrow_menu8_pressed():
 	$Menu.show()
@@ -30,32 +32,30 @@ func _on_Arrow_menu8_pressed():
 var resource = {}
 var manufacturer = {}
 var date
+var amc
 var new_date
 var score = 0
 var new_score = 0
 var size = 0
-
 onready var elem = preload('res://Text.tscn')
 
-func setText(val1,val2):
-	$Text/TextEdit.text = val1 + ":" + val2
-	
-func Pancerni_add():   
-	size = resource.size()
+func Pancerni_add(): 
 	if resource.has($Pancerni/Resource.text):
 		resource[$Pancerni/Resource.text] += int($Pancerni/Value.text)
 	else :
 		resource[$Pancerni/Resource.text] = int($Pancerni/Value.text)
-	$Pancerni/Resource.clear()
-	$Pancerni/Value.clear()
-	print(resource)
-	for i in range (0,size + 1):
+	size = resource.size()
+	for i in range (0,size):
 		var newElement = elem.instance()
 		add_child(newElement)
-		newElement.setText($Pancerni/Resource.text,$Pancerni/Value.text)
+		newElement.setText($Pancerni/Resource.text,resource[$Pancerni/Resource.text])
 		newElement.position = Vector2(0,i*100)
-		$Text.show()
-	
+	$Pancerni/Resource.clear()
+	$Pancerni/Value.clear()
+	$Text.show()
+
+
+
 
 func Pancerni2_add():
 	if manufacturer.has($Pancerni2/Resource2.text):
