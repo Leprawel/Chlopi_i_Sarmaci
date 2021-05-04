@@ -8,35 +8,37 @@ var new_date
 var score = 0
 var new_score = 0
 var size = 0
+var pozycja = Vector2(0,0)
 onready var elem = preload('res://Text.tscn')
 
 func _input(event):
+	if $Lista.position.x < 200:
+		$Lista.position.x = 200
+	if $Lista.position.x > 200:
+		$Lista.position.x = 200
+	if $Lista.position.y > 200:
+		$Lista.position.y = 200
+	if $Resource.position.x < 0:
+		$Resource.position.x = 0
+	if $Resource.position.x > 0:
+		$Resource.position.x = 0
+	if $Resource.position.y > 0:
+		$Resource.position.y = 0
 	if event is InputEventScreenDrag:
-		print("drag", event.position)
-		$Lista.position = event.position
+		$Lista.position += event.relative
+		$Resource.position += event.relative
+	
 
 
-func _physics_process(delta):
-	var velocity = Vector2(0,0)
-	if $Lista.position.y < -600:
-		$Lista.position.y = -600
-	if $Lista.position.y > 0:
-		$Lista.position.y = 0
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 4
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 4
-	if velocity.length() > 0:
-		$Lista.position += velocity
-	else:
-		position += velocity * delta
-		
+
+
 func _ready():
 	$Menu.hide()
 	$Pancerni.hide()
 	$Pancerni2.hide()
 	$Resource.hide()
 	$Lista.hide()
+	$Arrow.hide()
 	date = OS.get_unix_time()
 
 
@@ -57,23 +59,25 @@ func _on_Resource_pressed():
 	$Menu.hide()
 	$Resource.show()
 	$Lista.show()
-	print($Lista.position)
+	$Arrow.show()
+	$Resource.position.y = 0
+	$Lista.position.y = 200
 	var n = 0
 	for i in resource.keys():
 		var newElement = elem.instance()
 		newElement.setText(i,resource[i])
-		newElement.position = Vector2(0,n*100)
+		newElement.position = Vector2(0,n*120)
 		$Lista.add_child(newElement)
 		n += 1
 	
 
-
-
-func _on_Arrow__pressed():
+func _on_Arrow_pressed():
 	$Menu.show()
 	$Lista.hide()
 	$Resource.hide()
 	delete_children($Lista)
+
+
 
 
 func _on_Arrow_menu3_pressed():
@@ -122,5 +126,7 @@ func Refresh_date():
 func delete_children(node):
 	for i in node.get_children():
 		i.queue_free()
+
+
 
 

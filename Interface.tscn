@@ -31,9 +31,6 @@ font_data = ExtResource( 1 )
 
 [node name="Interface" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Start" type="Node2D" parent="."]
 __meta__ = {
@@ -41,10 +38,10 @@ __meta__ = {
 }
 
 [node name="Start_button" type="Button" parent="Start"]
-margin_left = 158.93
-margin_top = 444.128
-margin_right = 462.93
-margin_bottom = 553.128
+margin_left = 150.0
+margin_top = 500.0
+margin_right = 450.0
+margin_bottom = 600.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 __meta__ = {
@@ -53,8 +50,8 @@ __meta__ = {
 }
 
 [node name="Start_label" type="Label" parent="Start"]
-margin_left = 2.0
-margin_right = 604.0
+margin_left = 5.0
+margin_right = 601.0
 margin_bottom = 216.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -90,10 +87,10 @@ __meta__ = {
 }
 
 [node name="Add" type="Button" parent="Menu"]
-margin_left = 164.269
-margin_top = 396.074
-margin_right = 468.269
-margin_bottom = 505.074
+margin_left = 150.0
+margin_top = 400.0
+margin_right = 450.0
+margin_bottom = 500.0
 custom_fonts/font = SubResource( 1 )
 text = "Dodaj surowce"
 __meta__ = {
@@ -101,10 +98,10 @@ __meta__ = {
 }
 
 [node name="Income" type="Button" parent="Menu"]
-margin_left = 165.736
-margin_top = 561.584
-margin_right = 469.736
-margin_bottom = 670.584
+margin_left = 150.0
+margin_top = 550.0
+margin_right = 450.0
+margin_bottom = 650.0
 custom_fonts/font = SubResource( 1 )
 text = "Zmien dochód"
 __meta__ = {
@@ -113,10 +110,10 @@ __meta__ = {
 }
 
 [node name="Resource" type="Button" parent="Menu"]
-margin_left = 171.076
-margin_top = 711.086
-margin_right = 475.076
-margin_bottom = 820.086
+margin_left = 150.0
+margin_top = 700.0
+margin_right = 450.0
+margin_bottom = 800.0
 custom_fonts/font = SubResource( 1 )
 text = "Zobacz surowce"
 __meta__ = {
@@ -318,10 +315,33 @@ __meta__ = {
 }
 
 [node name="Lista" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Resource" type="Node2D" parent="."]
+position = Vector2( 0, 2.99661 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Arrow " type="Button" parent="Resource"]
+[node name="Label" type="Label" parent="Resource"]
+margin_left = -2.0
+margin_right = 598.0
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Twoje surowce"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Arrow" type="Button" parent="."]
 modulate = Color( 0.92549, 0.92549, 0.92549, 1 )
 margin_left = 57.0594
 margin_top = 866.059
@@ -336,22 +356,6 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
-
-[node name="Label" type="Label" parent="Resource"]
-margin_left = -2.0
-margin_right = 604.0
-margin_bottom = 239.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Twoje surowce"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
 [connection signal="pressed" from="Start/Start_button" to="." method="_on_Start_button_pressed"]
 [connection signal="pressed" from="Menu/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="Menu/Income" to="." method="_on_Income_pressed"]
@@ -361,4 +365,4 @@ __meta__ = {
 [connection signal="pressed" from="Pancerni2/Add_button2" to="Pancerni2" method="_on_Add_button2_pressed"]
 [connection signal="pressed" from="Pancerni2/Refresh" to="Pancerni2" method="_on_Refresh_pressed"]
 [connection signal="pressed" from="Pancerni2/Arrow_menu8" to="." method="_on_Arrow_menu8_pressed"]
-[connection signal="pressed" from="Resource/Arrow " to="." method="_on_Arrow__pressed"]
+[connection signal="pressed" from="Arrow" to="." method="_on_Arrow_pressed"]

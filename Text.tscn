@@ -3,7 +3,7 @@
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Text.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 15
 font_data = ExtResource( 1 )
 
@@ -11,11 +11,9 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 57.2852
-margin_top = 200.706
-margin_right = 252.285
-margin_bottom = 289.706
-custom_fonts/font = SubResource( 4 )
+margin_right = 200.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
