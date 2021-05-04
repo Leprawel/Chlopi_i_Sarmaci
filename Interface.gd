@@ -8,7 +8,6 @@ var new_date
 var score = 0
 var new_score = 0
 var size = 0
-var pozycja = Vector2(0,0)
 onready var elem = preload('res://Text.tscn')
 
 func _input(event):
@@ -27,7 +26,7 @@ func _input(event):
 	if event is InputEventScreenDrag:
 		$Lista.position += event.relative
 		$Resource.position += event.relative
-	
+
 
 
 
@@ -73,6 +72,7 @@ func _on_Resource_pressed():
 
 func _on_Arrow_pressed():
 	$Menu.show()
+	$Arrow.hide()
 	$Lista.hide()
 	$Resource.hide()
 	delete_children($Lista)
@@ -119,8 +119,6 @@ func Refresh_date():
 			if manufacturer.has(item):
 				resource[item] += manufacturer[item]
 		new_score -= 20
-	print(resource)
-	print(new_score)
 
 
 func delete_children(node):
