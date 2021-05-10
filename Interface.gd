@@ -8,7 +8,11 @@ var new_date
 var score = 0
 var new_score = 0
 var size = 0
+<<<<<<< HEAD
 var timer = 30
+=======
+var timer = 10
+>>>>>>> b8efbf475727ea1ee7ec00d1e297bb3ba78aabb9
 onready var elem = preload('res://Text.tscn')
 onready var elem2 = preload('res://Text2.tscn')
 
