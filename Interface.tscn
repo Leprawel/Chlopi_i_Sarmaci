@@ -286,19 +286,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Refresh" type="Button" parent="Pancerni2"]
-margin_left = 435.0
-margin_top = 170.488
-margin_right = 565.0
-margin_bottom = 234.488
-mouse_default_cursor_shape = 1
-custom_fonts/font = SubResource( 3 )
-text = "Odśwież"
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
 [node name="Arrow_menu8" type="Button" parent="Pancerni2"]
 modulate = Color( 0.92549, 0.92549, 0.92549, 1 )
 margin_left = 57.0594
@@ -320,20 +307,40 @@ __meta__ = {
 }
 
 [node name="Resource" type="Node2D" parent="."]
-position = Vector2( 0, 2.99661 )
+position = Vector2( -2.99646, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Resource"]
-margin_left = -2.0
-margin_right = 598.0
-margin_bottom = 240.0
+margin_left = 0.82373
+margin_top = -12.1726
+margin_right = 290.824
+margin_bottom = 230.827
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Twoje surowce"
+text = "Twoje
+ surowce"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="Resource"]
+margin_left = 300.485
+margin_top = -12.1727
+margin_right = 590.485
+margin_bottom = 230.827
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Twój
+dochód"
 align = 1
 valign = 1
 __meta__ = {
@@ -356,6 +363,11 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[node name="Lista1" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 [connection signal="pressed" from="Start/Start_button" to="." method="_on_Start_button_pressed"]
 [connection signal="pressed" from="Menu/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="Menu/Income" to="." method="_on_Income_pressed"]
@@ -363,6 +375,5 @@ __meta__ = {
 [connection signal="pressed" from="Pancerni/Add_button" to="Pancerni" method="_on_Add_button_pressed"]
 [connection signal="pressed" from="Pancerni/Arrow_menu3" to="." method="_on_Arrow_menu3_pressed"]
 [connection signal="pressed" from="Pancerni2/Add_button2" to="Pancerni2" method="_on_Add_button2_pressed"]
-[connection signal="pressed" from="Pancerni2/Refresh" to="Pancerni2" method="_on_Refresh_pressed"]
 [connection signal="pressed" from="Pancerni2/Arrow_menu8" to="." method="_on_Arrow_menu8_pressed"]
 [connection signal="pressed" from="Arrow" to="." method="_on_Arrow_pressed"]
