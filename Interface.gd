@@ -110,7 +110,7 @@ func _on_Arrow_menu8_pressed():
 
 
 
-func Pancerni_add(): 
+func Resource_add(): 
 	if resource.has($Pancerni/Resource.text):
 		resource[$Pancerni/Resource.text] += int($Pancerni/Value.text)
 	else :
@@ -120,7 +120,7 @@ func Pancerni_add():
 	$Pancerni/Value.clear()
 
 
-func Pancerni2_add():
+func Manufacture_add():
 	if manufacturer.has($Pancerni2/Resource2.text):
 		manufacturer[$Pancerni2/Resource2.text] += int($Pancerni2/Value2.text)
 	else :
