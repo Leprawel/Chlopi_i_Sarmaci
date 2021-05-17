@@ -3,12 +3,8 @@ extends Node2D
 
 var resource = {}
 var manufacturer = {}
-var date
-var new_date
-var score = 0
-var new_score = 0
+var last_resource_add = 0
 var size = 0
-var timer = 30
 onready var elem = preload('res://Text.tscn')
 onready var elem2 = preload('res://Text2.tscn')
 
@@ -47,7 +43,7 @@ func _ready():
 	$Lista.hide()
 	$Lista1.hide()
 	$Arrow.hide()
-	date = OS.get_unix_time()
+	last_resource_add = OS.get_unix_time()
 
 
 
@@ -72,15 +68,12 @@ func _on_Resource_pressed():
 	$Resource.position.y = 0
 	$Lista.position.y = 200
 	$Lista1.position.y = 200
-	new_date = OS.get_unix_time()
-	score = new_date - date
-	new_score += score
-	date = new_date
-	while new_score >= timer:
+	var new_date = OS.get_unix_time()
+	while new_date - last_resource_add >= 20:
 		for item in resource:
 			if manufacturer.has(item):
 				resource[item] += manufacturer[item]
-		new_score -= timer
+		last_resource_add += 20
 	var n = 0
 	var m = 0
 	for i in resource.keys():
