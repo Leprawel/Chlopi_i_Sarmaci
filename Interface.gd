@@ -45,7 +45,7 @@ func save():
 func save1():
 	var file1 = File.new()
 	var json1 = JSON.print(manufacturer)
-	file1.open("user://save_game.dat",File.WRITE)
+	file1.open("user://save_game1.dat",File.WRITE)
 	file1.store_string (json1)
 	file1.close()
 	print(json1)
@@ -54,7 +54,7 @@ func _load():
 	var file = File.new()
 	var file1 = File.new()
 	file.open("user://save_game.dat", File.READ)
-	file1.open("user://save_game.dat", File.READ)
+	file1.open("user://save_game1.dat", File.READ)
 	var content = file.get_as_text()
 	var content1 = file1.get_as_text()
 	file.close()
