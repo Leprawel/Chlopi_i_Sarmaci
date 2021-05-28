@@ -63,6 +63,11 @@ func _load():
 	var jsonparse1 = JSON.parse(content1)
 	print(jsonparse.result)
 	print(jsonparse1.result)
+	resource = jsonparse.result 
+	manufacturer = jsonparse1.result
+	
+
+
 
 
 func _ready():
