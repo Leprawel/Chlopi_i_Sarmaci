@@ -4,7 +4,6 @@ extends Node2D
 var resource = {}
 var manufacturer = {}
 var last_resource_add = 0
-var size = 0
 onready var elem = preload('res://Text.tscn')
 onready var elem2 = preload('res://Text2.tscn')
 
@@ -52,7 +51,7 @@ func manufacture_save():
 
 func _load():
 	var check = File.new()
-	if check.file_exists("user://resource.dat") and check.file_exists("user://manufature.dat"):
+	if check.file_exists("user://resource.dat") and check.file_exists("user://manufacture.dat"):
 		var file = File.new()
 		var file1 = File.new()
 		file.open("user://resource.dat", File.READ)
@@ -119,7 +118,7 @@ func _on_Resource_pressed():
 		newElement.position = Vector2(0,n*120)
 		$Lista.add_child(newElement)
 		n += 1
-	for i in manufacturer.keys():
+	for i in resource.keys():
 		var newElement2 = elem2.instance()
 		newElement2.setText2(i,manufacturer[i])
 		newElement2.position = Vector2(0,m*120)
@@ -154,10 +153,13 @@ func Resource_add():
 		resource[$Pancerni/Resource.text] += int($Pancerni/Value.text)
 	else :
 		resource[$Pancerni/Resource.text] = int($Pancerni/Value.text)
-	size = resource.size()
+	if not manufacturer.has($Pancerni/Resource.text):
+		manufacturer[$Pancerni/Resource.text] = 0
 	$Pancerni/Resource.clear()
 	$Pancerni/Value.clear()
 	resource_save()
+	print(resource)
+	print(manufacturer)
 
 
 func Manufacture_add():
@@ -165,9 +167,13 @@ func Manufacture_add():
 		manufacturer[$Pancerni2/Resource2.text] += int($Pancerni2/Value2.text)
 	else :
 		manufacturer[$Pancerni2/Resource2.text] = int($Pancerni2/Value2.text)
+	if not resource.has($Pancerni2/Resource2.text):
+		resource[$Pancerni2/Resource2.text] = 0
 	$Pancerni2/Resource2.clear()
 	$Pancerni2/Value2.clear()
 	manufacture_save()
+	print(resource)
+	print(manufacturer)
 
 
 func delete_children(node):
