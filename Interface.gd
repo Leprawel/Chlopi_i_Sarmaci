@@ -38,7 +38,7 @@ func resource_save():
 	file.open("user://resource.dat",File.WRITE)
 	file.store_string (json)
 	file.close()
-	print (json)
+	#print (json)
 
 
 func manufacture_save():
@@ -47,7 +47,7 @@ func manufacture_save():
 	file1.open("user://manufacture.dat",File.WRITE)
 	file1.store_string (json1)
 	file1.close()
-	print(json1)
+	#print(json1)
 
 func _load():
 	var check = File.new()
@@ -62,8 +62,8 @@ func _load():
 		file1.close()
 		var jsonparse = JSON.parse(content)
 		var jsonparse1 = JSON.parse(content1)
-		print(jsonparse.result)
-		print(jsonparse1.result)
+#		print(jsonparse.result)
+#		print(jsonparse1.result)
 		resource = jsonparse.result 
 		manufacturer = jsonparse1.result
 
@@ -158,6 +158,7 @@ func Resource_add():
 	$Pancerni/Resource.clear()
 	$Pancerni/Value.clear()
 	resource_save()
+	manufacture_save()
 	print(resource)
 	print(manufacturer)
 
@@ -171,6 +172,7 @@ func Manufacture_add():
 		resource[$Pancerni2/Resource2.text] = 0
 	$Pancerni2/Resource2.clear()
 	$Pancerni2/Value2.clear()
+	resource_save()
 	manufacture_save()
 	print(resource)
 	print(manufacturer)
