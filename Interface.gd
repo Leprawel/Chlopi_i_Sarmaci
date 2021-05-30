@@ -33,40 +33,40 @@ func _input(event):
 		$Resource.position += event.relative
 
 
-func save():
+func resource_save():
 	var file = File.new()
 	var json = JSON.print(resource)
-	file.open("user://save_game.dat",File.WRITE)
+	file.open("user://resource.dat",File.WRITE)
 	file.store_string (json)
 	file.close()
 	print (json)
 
 
-func save1():
+func manufacture_save():
 	var file1 = File.new()
 	var json1 = JSON.print(manufacturer)
-	file1.open("user://save_game1.dat",File.WRITE)
+	file1.open("user://manufacture.dat",File.WRITE)
 	file1.store_string (json1)
 	file1.close()
 	print(json1)
 
 func _load():
-	var file = File.new()
-	var file1 = File.new()
-	file.open("user://save_game.dat", File.READ)
-	file1.open("user://save_game1.dat", File.READ)
-	var content = file.get_as_text()
-	var content1 = file1.get_as_text()
-	file.close()
-	file1.close()
-	var jsonparse = JSON.parse(content)
-	var jsonparse1 = JSON.parse(content1)
-	print(jsonparse.result)
-	print(jsonparse1.result)
-	resource = jsonparse.result 
-	manufacturer = jsonparse1.result
-	
-
+	var check = File.new()
+	if check.file_exists("user://resource.dat") and check.file_exists("user://manufature.dat"):
+		var file = File.new()
+		var file1 = File.new()
+		file.open("user://resource.dat", File.READ)
+		file1.open("user://manufacture.dat", File.READ)
+		var content = file.get_as_text()
+		var content1 = file1.get_as_text()
+		file.close()
+		file1.close()
+		var jsonparse = JSON.parse(content)
+		var jsonparse1 = JSON.parse(content1)
+		print(jsonparse.result)
+		print(jsonparse1.result)
+		resource = jsonparse.result 
+		manufacturer = jsonparse1.result
 
 
 
@@ -125,7 +125,7 @@ func _on_Resource_pressed():
 		newElement2.position = Vector2(0,m*120)
 		$Lista1.add_child(newElement2)
 		m += 1
-	save()
+	resource_save()
 
 
 func _on_Arrow_pressed():
@@ -157,7 +157,7 @@ func Resource_add():
 	size = resource.size()
 	$Pancerni/Resource.clear()
 	$Pancerni/Value.clear()
-	save()
+	resource_save()
 
 
 func Manufacture_add():
@@ -167,7 +167,7 @@ func Manufacture_add():
 		manufacturer[$Pancerni2/Resource2.text] = int($Pancerni2/Value2.text)
 	$Pancerni2/Resource2.clear()
 	$Pancerni2/Value2.clear()
-	save1()
+	manufacture_save()
 
 
 func delete_children(node):
