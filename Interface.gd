@@ -40,6 +40,11 @@ func resource_save():
 	file.close()
 	#print (json)
 
+func timeset_save():
+	var timeset = File.new()
+	timeset.open("user://time_carriage.dat",File.WRITE)
+	timeset.store_var (last_resource_add)
+	timeset.close()
 
 func manufacture_save():
 	var file1 = File.new()
@@ -51,26 +56,50 @@ func manufacture_save():
 
 func _load():
 	var check = File.new()
-	if check.file_exists("user://resource.dat") and check.file_exists("user://manufacture.dat"):
+	if check.file_exists("user://resource.dat") \
+	and check.file_exists("user://manufacture.dat") \
+	and check.file_exists("user://time_carriage.dat"):
 		var file = File.new()
+		var timeset = File.new()
 		var file1 = File.new()
 		file.open("user://resource.dat", File.READ)
+		timeset.open("user://time_carriage.dat", File.READ)
 		file1.open("user://manufacture.dat", File.READ)
 		var content = file.get_as_text()
 		var content1 = file1.get_as_text()
+		last_resource_add = timeset.get_var()
 		file.close()
 		file1.close()
+		timeset.close()
 		var jsonparse = JSON.parse(content)
 		var jsonparse1 = JSON.parse(content1)
-#		print(jsonparse.result)
+		print(last_resource_add)
 #		print(jsonparse1.result)
 		resource = jsonparse.result 
 		manufacturer = jsonparse1.result
 
+func get_sobota():
+	var czasomierz = OS.get_datetime()
+	var to_sob
+	var to_sob_OS=0
+	
+	print (OS.get_datetime())
+	czasomierz["weekday"]
+	if czasomierz["weekday"] < 6:
+		to_sob = czasomierz["weekday"] +1
+		to_sob_OS = to_sob * 86400
+	elif czasomierz["weekday"] > 6:
+		to_sob_OS = 86400
+	
+	last_resource_add -=to_sob_OS
+	
+	print (OS.get_datetime_from_unix_time (last_resource_add))
+	
+	
+
 
 
 func _ready():
-	_load()
 	$Menu.hide()
 	$Pancerni.hide()
 	$Pancerni2.hide()
@@ -79,6 +108,9 @@ func _ready():
 	$Lista1.hide()
 	$Arrow.hide()
 	last_resource_add = OS.get_unix_time()
+	get_sobota()
+	timeset_save()
+	_load()
 
 
 
@@ -125,6 +157,7 @@ func _on_Resource_pressed():
 		$Lista1.add_child(newElement2)
 		m += 1
 	resource_save()
+	timeset_save()
 
 
 func _on_Arrow_pressed():
