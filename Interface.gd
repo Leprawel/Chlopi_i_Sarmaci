@@ -107,16 +107,17 @@ func _ready():
 	$Lista.hide()
 	$Lista1.hide()
 	$Arrow.hide()
+	$Reset.hide()
 	last_resource_add = OS.get_unix_time()
 	get_sobota()
 	timeset_save()
-	_load()
 
 
 
 func _on_Start_button_pressed():
 	$Start.hide()
 	$Menu.show()
+	_load()
 
 func _on_Add_pressed():
 	$Menu.hide()
@@ -219,3 +220,23 @@ func delete_children(node):
 
 
 
+
+
+func _on_Reset_game_pressed():
+	$Reset.show()
+
+
+func _on_Button_pressed():
+	var dir = Directory.new()
+	dir.remove("user://resource.dat")
+	dir.remove("user://manufacture.dat")
+	dir.remove("user://time_carriage.dat")
+	$Reset.hide()
+
+func _on_Button2_pressed():
+	$Reset.hide()
+
+
+func _on_Arrow_menu4_pressed():
+	$Start.show()
+	$Menu.hide()

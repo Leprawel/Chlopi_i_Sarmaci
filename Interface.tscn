@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Interface.gd" type="Script" id=2]
@@ -11,7 +11,7 @@ size = 31
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 55
+size = 49
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -29,13 +29,14 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 1 )
+
 [node name="Interface" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Start" type="Node2D" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Start_button" type="Button" parent="Start"]
 margin_left = 150.0
@@ -60,6 +61,18 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Chłopi i Sarmaci"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Reset_game" type="Button" parent="Start"]
+margin_left = 380.898
+margin_top = 880.8
+margin_right = 536.898
+margin_bottom = 974.8
+custom_fonts/font = SubResource( 1 )
+text = "Nowa gra"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -119,6 +132,21 @@ text = "Zobacz surowce"
 __meta__ = {
 "_edit_use_anchors_": true,
 "_editor_description_": ""
+}
+
+[node name="Arrow_menu4" type="Button" parent="Menu"]
+modulate = Color( 0.92549, 0.92549, 0.92549, 1 )
+margin_left = 57.0594
+margin_top = 868.119
+margin_right = 695.059
+margin_bottom = 1500.12
+rect_scale = Vector2( 0.15, 0.15 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="Pancerni" type="Node2D" parent="."]
@@ -368,12 +396,65 @@ __meta__ = {
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Reset" type="Node2D" parent="."]
+position = Vector2( -3.00397, 6.56097 )
+
+[node name="Panel" type="Panel" parent="Reset"]
+margin_left = 12.0
+margin_top = 222.0
+margin_right = 592.0
+margin_bottom = 610.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Reset/Panel"]
+margin_left = 5.0
+margin_right = 579.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 2 )
+text = "Czy napewno chcesz
+ rozpocząćnową grę?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Button" type="Button" parent="Reset/Panel"]
+margin_left = 62.0
+margin_top = 228.0
+margin_right = 239.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 7 )
+text = "Tak"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Reset/Panel"]
+margin_left = 320.0
+margin_top = 228.0
+margin_right = 497.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 7 )
+text = "Nie"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 [connection signal="pressed" from="Start/Start_button" to="." method="_on_Start_button_pressed"]
+[connection signal="pressed" from="Start/Reset_game" to="." method="_on_Reset_game_pressed"]
 [connection signal="pressed" from="Menu/Add" to="." method="_on_Add_pressed"]
 [connection signal="pressed" from="Menu/Income" to="." method="_on_Income_pressed"]
 [connection signal="pressed" from="Menu/Resource" to="." method="_on_Resource_pressed"]
+[connection signal="pressed" from="Menu/Arrow_menu4" to="." method="_on_Arrow_menu4_pressed"]
 [connection signal="pressed" from="Pancerni/Add_button" to="Pancerni" method="_on_Add_button_pressed"]
 [connection signal="pressed" from="Pancerni/Arrow_menu3" to="." method="_on_Arrow_menu3_pressed"]
 [connection signal="pressed" from="Pancerni2/Add_button2" to="Pancerni2" method="_on_Add_button2_pressed"]
 [connection signal="pressed" from="Pancerni2/Arrow_menu8" to="." method="_on_Arrow_menu8_pressed"]
 [connection signal="pressed" from="Arrow" to="." method="_on_Arrow_pressed"]
+[connection signal="pressed" from="Reset/Panel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Reset/Panel/Button2" to="." method="_on_Button2_pressed"]
