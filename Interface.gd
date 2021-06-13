@@ -97,12 +97,23 @@ func get_sobota():
 	var to_sob_OS=0
 	
 	print (OS.get_datetime())
-	czasomierz["weekday"]
+	#czasomierz["weekday"]
 	if czasomierz["weekday"] < 6:
 		to_sob = czasomierz["weekday"] +1
 		to_sob_OS = to_sob * 86400
 	elif czasomierz["weekday"] > 6:
 		to_sob_OS = 86400
+	
+	#czasomierz["hours"]
+	to_sob_OS+=czasomierz["hour"]*3600
+	
+	#czasomierz["minutes"]
+	to_sob_OS+=czasomierz["minute"]*60
+	
+	#czasomierz["second"]
+	to_sob_OS+=czasomierz["second"]
+	
+	
 	
 	last_resource_add -=to_sob_OS
 	
