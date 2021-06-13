@@ -415,7 +415,7 @@ margin_right = 579.0
 margin_bottom = 207.0
 custom_fonts/font = SubResource( 2 )
 text = "Czy napewno chcesz
- rozpocząćnową grę?"
+ rozpocząć nową grę?"
 align = 1
 valign = 1
 __meta__ = {
