@@ -16,9 +16,7 @@ func _ready():
 	$Lista1.hide()
 	$Arrow.hide()
 	$Reset.hide()
-	last_resource_add = OS.get_unix_time()
-	get_sobota()
-	timeset_save()
+	last_resource_add = get_sobota()
 
 func _input(event):
 	if $Lista.position.x < 65:
@@ -92,14 +90,13 @@ func _load():
 		manufacturer = jsonparse1.result
 
 func get_sobota():
-	var czasomierz = OS.get_datetime()
+	var czasomierz = OS.get_datetime_from_unix_time(OS.get_unix_time())
 	var to_sob
-	var to_sob_OS=0
+	var to_sob_OS = 0
 	
-	print (OS.get_datetime())
 	#czasomierz["weekday"]
 	if czasomierz["weekday"] < 6:
-		to_sob = czasomierz["weekday"] +1
+		to_sob = czasomierz["weekday"] + 1
 		to_sob_OS = to_sob * 86400
 	elif czasomierz["weekday"] > 6:
 		to_sob_OS = 86400
@@ -113,12 +110,7 @@ func get_sobota():
 	#czasomierz["second"]
 	to_sob_OS+=czasomierz["second"]
 	
-	
-	
-	last_resource_add -=to_sob_OS
-	
-	print (OS.get_datetime_from_unix_time (last_resource_add))
-	
+	return OS.get_unix_time() - to_sob_OS
 
 
 
@@ -147,11 +139,11 @@ func _on_Resource_pressed():
 	$Lista.position.y = 200
 	$Lista1.position.y = 200
 	var new_date = OS.get_unix_time()
-	while new_date - last_resource_add >= 20:
+	while (new_date - last_resource_add) >= 25200:
 		for item in resource:
 			if manufacturer.has(item):
 				resource[item] += manufacturer[item]
-		last_resource_add += 20
+		last_resource_add += 25200
 	var n = 0
 	var m = 0
 	for i in resource.keys():
@@ -238,7 +230,7 @@ func _on_Button_pressed():
 	dir.remove("user://time_carriage.dat")
 	resource = {}
 	manufacturer = {}
-	last_resource_add = 0
+	last_resource_add = get_sobota()
 	$Reset.hide()
 
 func _on_Button2_pressed():
