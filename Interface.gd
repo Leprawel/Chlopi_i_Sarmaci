@@ -7,6 +7,19 @@ var last_resource_add = 0
 onready var elem = preload('res://Text.tscn')
 onready var elem2 = preload('res://Text2.tscn')
 
+func _ready():
+	$Menu.hide()
+	$Pancerni.hide()
+	$Pancerni2.hide()
+	$Resource.hide()
+	$Lista.hide()
+	$Lista1.hide()
+	$Arrow.hide()
+	$Reset.hide()
+	last_resource_add = OS.get_unix_time()
+	get_sobota()
+	timeset_save()
+
 func _input(event):
 	if $Lista.position.x < 65:
 		$Lista.position.x = 65
@@ -95,22 +108,7 @@ func get_sobota():
 	
 	print (OS.get_datetime_from_unix_time (last_resource_add))
 	
-	
 
-
-
-func _ready():
-	$Menu.hide()
-	$Pancerni.hide()
-	$Pancerni2.hide()
-	$Resource.hide()
-	$Lista.hide()
-	$Lista1.hide()
-	$Arrow.hide()
-	$Reset.hide()
-	last_resource_add = OS.get_unix_time()
-	get_sobota()
-	timeset_save()
 
 
 
@@ -218,10 +216,6 @@ func delete_children(node):
 
 
 
-
-
-
-
 func _on_Reset_game_pressed():
 	$Reset.show()
 
@@ -231,6 +225,9 @@ func _on_Button_pressed():
 	dir.remove("user://resource.dat")
 	dir.remove("user://manufacture.dat")
 	dir.remove("user://time_carriage.dat")
+	resource = {}
+	manufacturer = {}
+	last_resource_add = 0
 	$Reset.hide()
 
 func _on_Button2_pressed():
