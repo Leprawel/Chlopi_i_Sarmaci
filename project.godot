@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -23,6 +22,7 @@ config/icon="res://icon.png"
 
 window/size/width=600
 window/size/height=1000
+window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 
 [input]
@@ -46,13 +46,8 @@ ui_center={
  ]
 }
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
-
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0.929412, 0.92549, 0.92549, 1 )
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
